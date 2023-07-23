@@ -13,11 +13,26 @@
 
 const iconMenu = document.querySelector('.menu__icon');
 if (iconMenu){
-    const menuBody = document.querySelector('.menu__body');
+    
     iconMenu.addEventListener("click", function(e) {
-        document.body.classList.toggle('_lock');
-        iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
+        menuClose();
+    });
+}
+
+function menuClose() {
+    const menuBody = document.querySelector('.menu__body');
+    iconMenu.classList.toggle('_active');
+    document.body.classList.toggle('_lock');
+    menuBody.classList.toggle('_active');
+}
+
+const menuLinkAll = document.querySelectorAll('.menu__link');
+
+if(menuLinkAll.length > 0){
+    menuLinkAll.forEach(menuLink => {
+        menuLink.addEventListener('click', () => {
+            menuClose();
+        })
     });
 }
 
@@ -438,4 +453,21 @@ document.addEventListener('keydown', function (e) {
     }
 })();
 
+const dataSelectAll = document.querySelectorAll('[data-select]');
 
+if(dataSelectAll.length > 0){
+    dataSelectAll.forEach(dataSelect => {
+        dataSelect.addEventListener('click', () => {
+            
+
+            const curentPopup = document.getElementById('popup');
+            popupOpen(curentPopup);
+            let  dataSelectAttr = dataSelect.getAttribute('data-select');
+
+            let selectItem = document.getElementById('select-courses');
+            selectItem.value = dataSelectAttr;
+
+            console.log(selectItem);
+        })
+    });
+}
