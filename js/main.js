@@ -474,4 +474,3 @@ if(dataSelectAll.length > 0){
         const popupActive = document.querySelector('.popup.open');
               popupClose(popupActive);
     })
-
