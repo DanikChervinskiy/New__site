@@ -1,14 +1,4 @@
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxggQA646tiHDFraCs6j5lG2N8SxEb2OskMfdqH2TQ4a1XH70UuCu12oPrCOvqiYtlH/exec'
-    const form = document.forms['submit-to-google-sheet']
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
-
 // ===== БУРГЕР ==================================================================================
 
 const iconMenu = document.querySelector('.menu__icon');
@@ -471,3 +461,17 @@ if(dataSelectAll.length > 0){
         })
     });
 }
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxggQA646tiHDFraCs6j5lG2N8SxEb2OskMfdqH2TQ4a1XH70UuCu12oPrCOvqiYtlH/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+        const popupActive = document.querySelector('.popup.open');
+              popupClose(popupActive);
+    })
+
